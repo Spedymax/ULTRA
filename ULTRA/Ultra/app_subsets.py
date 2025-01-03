@@ -2,6 +2,7 @@ import json
 import os
 import subprocess
 from typing import List, Dict
+from security import safe_command
 
 
 class AppSubsetManager:
@@ -52,8 +53,7 @@ class AppSubsetManager:
                 app_name
             ]
 
-            result = subprocess.run(
-                ps_command,
+            result = safe_command.run(subprocess.run, ps_command,
                 capture_output=True,
                 text=True,
                 creationflags=subprocess.CREATE_NO_WINDOW
