@@ -1,0 +1,15 @@
+{
+    "name": "ultra",
+    "version": "2.0.0",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "dependencies": {
+        "electron": "latest",
+        "express": "5.0.0",
+        "marked": "^9.1.5",
+        "socket.io": "^4.7.2",
+        "socket.io-client": "^4.7.2"
+    }
+}

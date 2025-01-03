@@ -1,0 +1,267 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "control_pc",
+            "description": "Control PC operations like restart, shutdown, sleep, or lock.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "enum": ["restart", "shutdown", "sleep", "lock"],
+                        "description": "The PC control action to perform"
+                    },
+                    "delay": {
+                        "type": "number",
+                        "description": "Optional delay in seconds before executing the action",
+                        "default": 0
+                    }
+                },
+                "required": ["action"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "open_application",
+            "description": "Open an application on the PC by name or path.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "app_name": {
+                        "type": "string",
+                        "description": "Name or path of the application to open, always in english"
+                    },
+                    "arguments": {
+                        "type": "string",
+                        "description": "Optional command line arguments for the application"
+                    }
+                },
+                "required": ["app_name"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "open_browser",
+            "description": "Open a URL in the default web browser or a specific browser.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The URL to open"
+                    },
+                    "browser": {
+                        "type": "string",
+                        "enum": ["chrome"],
+                        "description": "The browser to use"
+                    }
+                },
+                "required": ["url"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "search_google",
+            "description": "Search Google for all information you don't know, and for up to date information, DO NOT use this for info you know, prioritize not using this tool and using your own knowledge before using it. Don't ask user for permission. This might open the webpage on the users device if they set it to do that.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "searchquery": {
+                        "type": "string",
+                        "description": "The search query to use for the Google search"
+                    }
+                },
+                "required": ["searchquery"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_current_weather",
+            "description": "Retrieve only the current weather and condition data for any location. I cannot give past or future forecasts without google search",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "The city and state, e.g., Tampa, FL. Leave blank for default location."
+                    },
+                    "unit": {
+                        "type": "string",
+                        "enum": ["celsius", "fahrenheit"]
+                    }
+                },
+                "required": []
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "use_calculator",
+            "description": "Performs arithmetic operations, solves equations (including multi-variable), and evaluates expressions involving powers, roots, and more. Only takes in numbers and symbols, no words.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "input_string": {
+                        "type": "string",
+                        "description": "Accepts a numerical only string for performing a wide range of mathematical calculations. Supports arithmetic operations, solving linear and multi-variable equations, and evaluating expressions with powers, square roots, etc. Examples: '5 + 7' performs addition. '2x = 10' solves for x. 'x^2 + y^2 = 16' solves a multi-variable equation. 'sqrt(16), 3^3' evaluates square root and power expressions. 'x + y + z = 6, 2*x + y - z = 3, x - y + 2*z = 0' solves a system of multi-variable equations. Does NOT take in words, only numbers and symbols."
+                    }
+                },
+                "required": ["input_string"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "personal_memory",
+            "description": "Use this to Store, retrieve, or clear data in my permanent memory, anything I store here will persist across sessions. I should be specific when storing data and I should do this without user input.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "operation": {
+                        "type": "string",
+                        "enum": ["store", "retrieve", "clear"],
+                        "description": "Operation to perform. Clear will erase everything."
+                    },
+                    "data": {
+                        "type": "string",
+                        "description": "The data to store, it must be very specific, like: 'Users birthday is January 1st, 1990.' (Only required for 'store' operation)."
+                    }
+                },
+                "required": ["operation"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "search_and_play_song",
+            "description": "Search for a song on Spotify using a given name and play it. The song name can vary from the exact user input.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "song_name": {
+                        "type": "string",
+                        "description": "The name of the song to search for"
+                    }
+                },
+                "required": ["song_name"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "toggle_spotify_playback",
+            "description": "Control Spotify playback: pause, unpause, or toggle between pause and unpause.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "enum": ["pause", "unpause", "toggle"],
+                        "description": "Action for Spotify playback: choose 'pause', 'unpause', or 'toggle'."
+                    }
+                },
+                "required": ["action"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "set_spotify_volume",
+            "description": "Set Spotify playback volume. Specify volume as a percentage (0-100).",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "volume_percent": {
+                        "type": "number",
+                        "description": "Volume level 0-100"
+                    }
+                },
+                "required": ["volume_percent"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "set_system_volume",
+            "description": "Set system volume, also your speaking volume. Default to this volume unless recently asked to play a song. Volume level range: 0-100.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "volume_level": {
+                        "type": "number",
+                        "description": "Volume level 0-100"
+                    }
+                },
+                "required": ["volume_level"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_current_datetime",
+            "description": "Retrieve the current date and/or time. Options: date, time, or both.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "mode": {
+                        "type": "string",
+                        "enum": ["date", "time", "date & time"],
+                        "description":
+                        "Choose whether to get date, time, or both"
+                    }
+                },
+                "required": ["mode"]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "manage_app_subset",
+            "description": "Create, modify, or delete groups of applications that can be opened together. If the user says 'I'm home' or 'I'm at the office' for example open corresponding app subsets",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "enum": ["create", "delete", "modify", "list", "open"],
+                        "description": "The action to perform on the app subset"
+                    },
+                    "subset_name": {
+                        "type": "string",
+                        "description": "Name of the app subset (e.g., 'home', 'office', 'gaming')"
+                    },
+                    "modification_type": {
+                        "type": "string",
+                        "enum": ["add", "remove"],
+                        "description": "For modify action: whether to add or remove apps from the subset"
+                    },
+                    "apps": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of application names to include in the subset"
+                    }
+                },
+                "required": ["action", "subset_name"]
+            }
+        }
+    }
+]

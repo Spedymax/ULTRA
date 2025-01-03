@@ -1,0 +1,23 @@
+{
+    "home": [
+        "spotify",
+        "telegram"
+    ],
+    "work": [
+        "chrome",
+        "outlook",
+        "notepad"
+    ],
+    "media": [
+        "spotify",
+        "vlc"
+    ],
+    "development": [
+        "vscode",
+        "github desktop",
+        "terminal"
+    ],
+    "check pc": [
+        "windirstat"
+    ]
+}

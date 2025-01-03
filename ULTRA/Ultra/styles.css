@@ -1,0 +1,311 @@
+body {
+                            font-family: 'Roboto', 'Arial', sans-serif;
+                            background-color: #121212;
+                            color: white;
+                            margin: 0;
+                            padding: 0;
+                        }
+                        .clear-button {
+                            padding: 6px 12px;
+                            border: none;
+                            border-radius: 6px;
+                            background-color: #dc3545;
+                            color: white;
+                            font-weight: bold;
+                            cursor: pointer;
+                            transition: background-color 0.2s;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 8px;
+                            line-height: 1;
+
+                        }
+
+                        .clear-button i {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        .clear-button:hover {
+                            background-color: #c82333;
+                        }
+
+                        #input-container {
+                            position: fixed;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            padding: 20px;
+                            background-color: #2d2d2d;
+                            display: flex;
+                            gap: 10px;
+                            align-items: center;
+                        }
+
+                        #message-input {
+                            flex-grow: 1;
+                            padding: 12px;
+                            border: none;
+                            border-radius: 6px;
+                            background-color: #3d3d3d;
+                            color: #ffffff;
+                            font-size: 16px;
+                        }
+
+                        #send-button {
+                            padding: 12px 24px;
+                            border: none;
+                            border-radius: 6px;
+                            background-color: #4a9eff;
+                            color: white;
+                            font-weight: bold;
+                            cursor: pointer;
+                            transition: background-color 0.2s;
+                        }
+
+                        /* Incorrect Animation Style */
+                        @keyframes shake {
+                            0%, 100% { transform: translateX(0); }
+                            20%, 60% { transform: translateX(-10px); }
+                            40%, 80% { transform: translateX(10px); }
+                        }
+
+
+                        .nav-menu li {
+                            color: #ececf1;
+                            margin: 0 10px;
+                            padding: 8px;
+                            border-radius: 12px;
+                            font-size: 16px;
+                            position: relative;
+                            border: 1px solid transparent;
+                            transition: background-color 0.4s ease, border-color 0.3s ease;
+                        }
+
+                        .nav-menu a {
+                            text-decoration: none;
+                            color: #ececf1;
+                            display: block;
+                            padding: 5px;
+                            border-radius: 12px;
+                            transition: color 0.3s ease;
+                        }
+
+                        .nav-menu li:hover, .nav-menu li:focus {
+                            background-color: #333;
+                            border-color: #585858;
+                        }
+
+                        /* Active link style (optional) */
+                        .nav-menu li.active {
+                            font-weight: bold;
+                            color: #f1c40f;
+                        }
+
+                        /* Hover effect for links */
+                        .nav-menu a:hover {
+                            color: #fff;
+                        }
+
+                        /* Fade-in animation */
+                        @keyframes fadeIn {
+                            from { opacity: 0; }
+                            to { opacity: 1; }
+                        }
+
+                        @keyframes fadeOut {
+                            from { opacity: 1; }
+                            to { opacity: 0; }
+                        }
+
+                        h1 {
+                            text-align: center;
+                            margin-bottom: 1rem;
+                            text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.8);
+                            padding: 20px;
+                        }
+
+                        #app-container {
+                            background: #141414;
+                            width: auto;
+                            height: auto;
+                            padding: 20px;
+                            overflow: hidden;
+                            border-radius: 10px;
+                            white-space: pre-wrap;
+                            transition: scroll-margin-top 0.5s;
+                        }
+
+                        .scroll_enabled {
+                            overflow-y: auto !important;
+                            height: calc(100vh - 100px) !important;
+                            padding: 10px !important;
+                            background: #1d1d1d !important;
+                            border-radius: 10px !important;
+                            box-shadow: -5px 5px 50px rgba(0, 0, 0, 0.5);
+                            display: flex;
+                            flex-direction: column;
+                            overflow-anchor: auto !important;
+                            transform: translateZ(0);
+                        }
+
+                        ::-webkit-scrollbar {
+                            display: none;
+                        }
+
+                        @keyframes rotate {
+                            0%, 100% {
+                                transform: rotate(0deg);
+                            }
+
+                            100% {
+                                transform: rotate(360deg);
+                            }
+                        }
+
+                        @keyframes jiggle {
+                            0%, 20%, 25%, 40%, 60%, 100% {
+                                transform: rotate(0deg);
+                            }
+
+                            20% {
+                                transform: rotate(-7deg);
+                            }
+
+                            40% {
+                                transform: rotate(7deg);
+                            }
+                        }
+
+                        @keyframes bounce {
+                            0%, 20%, 50%, 80%, 100% {
+                                transform: translateY(0);
+                            }
+
+                            40% {
+                                transform: translateY(-10px);
+                            }
+
+                            60% {
+                                transform: translateY(-5px);
+                            }
+                        }
+
+                        @keyframes pulse {
+                            0%, 100% {
+                                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8);
+                            }
+
+                            70% {
+                                box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+                            }
+                        }
+
+                        #status-indicator {
+                            position: fixed;
+                            top: 10px;
+                            left: 10px;
+                            padding: 5px 15px;
+                            border-radius: 20px;
+                            z-index: 100;
+                            text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.8);
+                            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                            backdrop-filter: blur(10px);
+                            background: rgba(255, 255, 255, 0.1);
+                            font-weight: bold;
+                            font-size: 1.1em;
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            transition: background-color 0.3s ease;
+                            animation: pulse 2s infinite;
+                        }
+
+                        @keyframes slideInFromLeft {
+                            from {
+                                transform: translateX(-110%);
+                            }
+
+                            to {
+                                transform: translateX(0);
+                            }
+                        }
+
+                        @keyframes slideOutToLeft {
+                            from {
+                                transform: translateX(0);
+                            }
+
+                            to {
+                                transform: translateX(-110%);
+                            }
+                        }
+
+                        /* General Checkbox and Label Styling */
+                        input[type="checkbox"] {
+                            cursor: pointer;
+                            appearance: none; /* Remove default styling */
+                            background-color: #2A2A2A; /* Dark theme background */
+                            color: #FFF;
+                            margin: 4px;
+                            border-radius: 4px; /* Rounded corners */
+                            width: 20px;
+                            height: 20px;
+                            border: 2px solid #555; /* Slightly lighter border for visibility */
+                            position: relative;
+                        }
+
+                        input[type="checkbox"]:checked::before {
+                            content: '';
+                            position: absolute;
+                            top: 2px;
+                            left: 6px;
+                            width: 6px;
+                            height: 12px;
+                            border: solid #FFF;
+                            border-width: 0 3px 3px 0;
+                            transform: translate(-30%, -20%) rotate(45deg);;
+                        }
+
+                        input[type="checkbox"]:hover {
+                            border-color: #FFF; /* Highlight on hover */
+                        }
+
+                        label {
+                            cursor: pointer;
+                            display: block; /* Ensure label takes the full width for easier clicking */
+                            margin: 10px 0;
+                            font-size: 16px;
+                            color: #D1D5DB; /* Light grey text for readability */
+                            transition: color 0.3s ease;
+                        }
+
+                        /* Specific styles for 'light' class checkboxes */
+                        input[type="checkbox"].light:checked {
+                            background-color: #FFA500; /* Orange background for checked state */
+                            border-color: #FFA500; /* Matching border color */
+                        }
+
+                        /* Specific styles for 'switch' class checkboxes */
+                        input[type="checkbox"].switch:checked {
+                            background-color: #008000; /* Green background for checked state */
+                            border-color: #008000; /* Matching border color */
+                        }
+
+                        .button-textbox-combo > div,
+                        .button-textbox-combo > button {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+
+                        @keyframes fadeIn {
+                            from {
+                                opacity: 0;
+                            }
+                            to {
+                                opacity: 1;
+                            }
+                        }
